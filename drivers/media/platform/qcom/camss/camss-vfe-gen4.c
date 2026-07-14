@@ -13,17 +13,32 @@
 #include "camss.h"
 #include "camss-vfe.h"
 
+#define IS_VFE_900(vfe)		((vfe)->camss->res->version == CAMSS_NORD)
 #define IS_VFE_980(vfe)		((vfe)->camss->res->version == CAMSS_8750)
 
+/*
+ * v900 measures BUS_WR from the DTS reg base of each block: full VFE reg
+ * base is the IFE base (BUS_WR at +0x700 -> BUS_REG_BASE 0xA00), while
+ * vfe_lite reg base is the IFE_LITE_TOP sub-block (BUS_WR at TOP + 0x400
+ * -> BUS_REG_BASE 0x700).
+ */
+#define BUS_REG_BASE_900	(vfe_is_lite(vfe) ? 0x700 : 0xA00)
 #define BUS_REG_BASE_980	(vfe_is_lite(vfe) ? 0x200 : 0x800)
 #define BUS_REG_BASE_1080	(vfe_is_lite(vfe) ? 0x800 : 0x1000)
 #define BUS_REG_BASE \
-	    (IS_VFE_980(vfe) ? BUS_REG_BASE_980 : BUS_REG_BASE_1080)
+	    (IS_VFE_900(vfe) ? BUS_REG_BASE_900 : \
+	     IS_VFE_980(vfe) ? BUS_REG_BASE_980 : BUS_REG_BASE_1080)
 
 #define VFE_BUS_WM_CGC_OVERRIDE			(BUS_REG_BASE + 0x08)
 #define		WM_CGC_OVERRIDE_ALL			(0x7FFFFFF)
 
-#define VFE_BUS_WM_TEST_BUS_CTRL		(BUS_REG_BASE + 0x128)
+/*
+ * On v900 TEST_BUS_CTRL lives in the BUS_WR top block (BUS_WR + 0x144),
+ * below the write-master register block, unlike gen4 where it is part of
+ * the WM block at BUS_REG_BASE + 0x128.
+ */
+#define VFE_BUS_WM_TEST_BUS_CTRL \
+	(IS_VFE_900(vfe) ? (BUS_REG_BASE - 0x1BC) : (BUS_REG_BASE + 0x128))
 
 #define VFE_BUS_WM_CFG(n)			(BUS_REG_BASE + 0x500 + (n) * 0x100)
 #define		WM_CFG_EN				BIT(0)
@@ -97,8 +112,9 @@ static void vfe_wm_start(struct vfe_device *vfe, u8 wm, struct vfe_line *line)
 
 	wm = RDI_WM(wm);
 
-	/* no clock gating at bus input */
-	writel(WM_CGC_OVERRIDE_ALL, vfe->base + VFE_BUS_WM_CGC_OVERRIDE);
+	/* no clock gating at bus input; v900 has no such register */
+	if (!IS_VFE_900(vfe))
+		writel(WM_CGC_OVERRIDE_ALL, vfe->base + VFE_BUS_WM_CGC_OVERRIDE);
 
 	writel(0x0, vfe->base + VFE_BUS_WM_TEST_BUS_CTRL);
 
