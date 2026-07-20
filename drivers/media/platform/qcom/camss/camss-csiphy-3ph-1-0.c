@@ -1138,6 +1138,7 @@ static bool csiphy_is_gen2(u32 version)
 	case CAMSS_8750:
 	case CAMSS_8775P:
 	case CAMSS_KAANAPALI:
+	case CAMSS_NORD:
 	case CAMSS_X1E80100:
 		ret = true;
 		break;
@@ -1255,6 +1256,7 @@ static int csiphy_init(struct csiphy_device *csiphy)
 		break;
 	case CAMSS_8750:
 	case CAMSS_KAANAPALI:
+	case CAMSS_NORD:
 		/* CSPHY v2.4.0 is backward compatible with v2.3.0 settings */
 		regs->lane_regs = &lane_regs_2_4_0[0];
 		regs->lane_array_size = ARRAY_SIZE(lane_regs_2_4_0);
