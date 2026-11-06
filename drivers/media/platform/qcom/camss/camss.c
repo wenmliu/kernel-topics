@@ -5825,7 +5825,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.reg_update_after_csid_config = true,
 			.has_pd = true,
 			.pd_name = "ife0",
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -5853,7 +5853,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.reg_update_after_csid_config = true,
 			.has_pd = true,
 			.pd_name = "ife1",
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -5881,7 +5881,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.reg_update_after_csid_config = true,
 			.has_pd = true,
 			.pd_name = "ife2",
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -5906,7 +5906,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -5931,7 +5931,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -5956,7 +5956,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -5981,7 +5981,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -6006,7 +6006,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -6031,7 +6031,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -6056,7 +6056,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -6081,7 +6081,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -6106,7 +6106,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
@@ -6131,7 +6131,7 @@ static const struct camss_subdev_resources vfe_res_nord[] = {
 			.line_num = 4,
 			.is_lite = true,
 			.reg_update_after_csid_config = true,
-			.hw_ops = &vfe_ops_gen4,
+			.hw_ops = &vfe_ops_900,
 			.formats_rdi = &vfe_formats_rdi_845,
 			.formats_pix = &vfe_formats_pix_845
 		}
